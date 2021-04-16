@@ -12,3 +12,11 @@ function setQuery(evt) {
         console.log(barrapesquisa.value);
     }
 }
+
+function getResults (query) {
+    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      .then(weather => {
+        return weather.json();
+      }).then(displayResults);
+  }
+  
