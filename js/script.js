@@ -19,4 +19,6 @@ function getResults (query) {
         return weather.json();
       }).then(displayResults);
   }
+
+  
   
