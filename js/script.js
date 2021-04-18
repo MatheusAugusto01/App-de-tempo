@@ -40,14 +40,14 @@ function getResults (query) {
 
 function dateBuilder (d) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let dias = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   
-    let day = days[d.getDay()];
+    let day = dias[d.getDay()];
     let date = d.getDate();
-    let month = months[d.getMonth()];
+    let month = meses[d.getMonth()];
     let year = d.getFullYear();
   
-    return `${day} ${date} ${month} ${year}`;
+    return `${dia} ${data} ${mes} ${ano}`;
   }
 
   
