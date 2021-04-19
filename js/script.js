@@ -39,8 +39,8 @@ function getResults (query) {
 }
 
 function dateBuilder (d) {
-    let months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "August", "September", "October", "November", "December"];
-    let dias = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    let dias = ["Domingo", "Segunda-feiraay", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
   
     let day = dias[d.getDay()];
     let date = d.getDate();
