@@ -21,8 +21,8 @@ function getResults (query) {
   }
 
   function displayResults (weather) {
-  let city = document.querySelector('.local .cidade');
-  city.innerText = `${weather.name}, ${weather.sys.country}`;
+  let cidade = document.querySelector('.local .cidade');
+  cidade.innerText = `${weather.name}, ${weather.sys.country}`;
 
   let now = new Date();
   let date = document.querySelector('.local .data');
