@@ -1,37 +1,36 @@
-const api ={
-    key: "840f74b291c81f7dab17af38a197be5d",
-    baseurl: "https://home.openweathermap.org/api_keys",  
+const api = {
+  key: "afaf9f8d48cff6cafd32e23220bcfdbf",
+  base: "https://api.openweathermap.org/data/2.5/"
 }
 
-const barrapesquisa = document.querySelector('.barra-pesquisa');
-barrapesquisa.addEventListener('keypress', setQuery);
+const searchbox = document.querySelector('.search-box');
+searchbox.addEventListener('keypress', setQuery);
 
 function setQuery(evt) {
-    if (evt.kayCode ==13) {
-        getResults(barrapesquisa.value);
-        console.log(barrapesquisa.value);
-    }
+  if (evt.keyCode == 13) {
+    getResults(searchbox.value);
+  }
 }
 
 function getResults (query) {
-    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-      .then(weather => {
-        return weather.json();
-      }).then(displayResults);
-  }
+  fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+    .then(weather => {
+      return weather.json();
+    }).then(displayResults);
+}
 
-  function displayResults (weather) {
-  let cidade = document.querySelector('.local .cidade');
-  cidade.innerText = `${weather.name}, ${weather.sys.country}`;
+function displayResults (weather) {
+  let city = document.querySelector('.location .city');
+  city.innerText = `${weather.name}, ${weather.sys.country}`;
 
   let now = new Date();
-  let date = document.querySelector('.local .data');
+  let date = document.querySelector('.location .date');
   date.innerText = dateBuilder(now);
 
-  let temp = document.querySelector('.clima .graus');
+  let temp = document.querySelector('.current .temp');
   temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
 
-  let weather_el = document.querySelector('.clima .tempo');
+  let weather_el = document.querySelector('.current .weather');
   weather_el.innerText = weather.weather[0].main;
 
   let hilow = document.querySelector('.hi-low');
@@ -39,16 +38,13 @@ function getResults (query) {
 }
 
 function dateBuilder (d) {
-    let months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-    let dias = ["Domingo", "Segunda-feiraay", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
-  
-    let day = dias[d.getDay()];
-    let date = d.getDate();
-    let month = meses[d.getMonth()];
-    let year = d.getFullYear();
-  
-    return `${dia} ${data} ${mes} ${ano}`;
-  }
+  let months = ["Janeiro", "Fevereiro", "Março", "April", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+  let days = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sabádo"];
 
-  
-  
+  let day = days[d.getDay()];
+  let date = d.getDate();
+  let month = months[d.getMonth()];
+  let year = d.getFullYear();
+
+  return `${day} ${date} ${month} ${year}`;
+}
